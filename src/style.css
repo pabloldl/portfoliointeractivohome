@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+  font-family: 'Outfit', sans-serif;
+}
+
+spline-viewer {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Floating Actions Menu */
+.floating-actions {
+  position: absolute;
+  /* Using absolute inside the fixed body */
+  bottom: 50px;
+  /* Place it symmetrically at the bottom */
+  right: 50px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: auto;
+  /* To let clicks pass through to the buttons */
+}
+
+/* Base Glassmorphism Button */
+.btn-glass {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  /* Transparent frosted glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  /* Reflective edge */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shine effect on text slightly */
+.btn-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: -1;
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(109, 40, 217, 0.3);
+  /* Cyber / Dark glow */
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-glass:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Primary Highlight for the LinkedIn Button */
+.btn-primary {
+  background: rgba(109, 40, 217, 0.2);
+  border-color: rgba(167, 139, 250, 0.25);
+}
+
+.btn-primary:hover {
+  background: rgba(109, 40, 217, 0.35);
+}
